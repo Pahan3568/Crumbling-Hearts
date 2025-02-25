@@ -1,0 +1,18 @@
+{
+  "config.crumbling_hearts.title": "Heart Particles Settings",
+  "config.crumbling_hearts.category.general": "General",
+  "config.crumbling_hearts.option.red": "Particle Red",
+  "config.crumbling_hearts.option.green": "Particle Green",
+  "config.crumbling_hearts.option.blue": "Particle Blue",
+  "config.crumbling_hearts.option.normal_heart_color": "Normal Hearts Color",
+  "config.crumbling_hearts.option.extra_heart_color": "Absorption Hearts Color",
+  "config.crumbling_hearts.option.particles": "Particles Amount",
+  "config.crumbling_hearts.option.gravity": "Gravity",
+  "config.crumbling_hearts.option.velocity": "Scattering",
+  "config.crumbling_hearts.error.invalid_color": "Invalid color format! Use #RRGGBB format",
+  "key.crumbling_hearts.config": "Open Settings",
+  "category.crumbling_hearts.general": "Heart Particles",
+  "config.crumbling_hearts.option.fade_speed": "Fade Speed",
+  "crumbling_hearts.update": "§e[Crumbling Hearts] §fUpdate available! Download new version from §b%s",
+  "modmenu.descriptionTranslation.crumbling_hearts": "This mod will add heart destruction particles!"
+} 

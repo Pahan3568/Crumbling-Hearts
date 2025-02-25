@@ -1,0 +1,18 @@
+{
+  "config.crumbling_hearts.title": "Настройки частиц сердец",
+  "config.crumbling_hearts.category.general": "Основные",
+  "config.crumbling_hearts.option.red": "Красный цвет частиц",
+  "config.crumbling_hearts.option.green": "Зеленый цвет частиц",
+  "config.crumbling_hearts.option.blue": "Синий цвет частиц",
+  "config.crumbling_hearts.option.particles": "Количество частиц",
+  "config.crumbling_hearts.option.gravity": "Гравитация",
+  "config.crumbling_hearts.option.velocity": "Разбрасывание",
+  "config.crumbling_hearts.option.normal_heart_color": "Цвет частиц обычных сердец",
+  "config.crumbling_hearts.option.extra_heart_color": "Цвет частиц поглощения",
+  "key.crumbling_hearts.config": "Открыть настройки",
+  "category.crumbling_hearts.general": "Частицы сердец",
+  "config.crumbling_hearts.error.invalid_color": "Неверный формат цвета! Используйте формат #RRGGBB",
+  "config.crumbling_hearts.option.fade_speed": "Скорость исчезания",
+  "crumbling_hearts.update": "§e[Crumbling Hearts] §fДоступно обновление! Скачайте новую версию с §b%s",
+  "modmenu.descriptionTranslation.crumbling_hearts": "Этот мод добавит частицы разрушения сердец!"
+} 
