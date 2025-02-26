@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "crumbling_hearts",
+  "version": "${version}",
+  "name": "Crumbling Hearts",
+  "description": "This mod will add heart destruction particles!",
+  "authors": ["Pahan3568"],
+  "contributors": ["Claude-3.5-sonnet", "Cursor AI"],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/crumbling-hearts",
+    "sources": "https://github.com/Pahan3568/Crumbling-Hearts",
+    "issues": "https://github.com/Pahan3568/Crumbling-Hearts/issues"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/crumbling_hearts/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.pahan3568.crumbling_hearts.client.Crumbling_heartsClient"
+    ],
+    "modmenu": [
+      "me.pahan3568.crumbling_hearts.client.config.ModMenuIntegration"
+    ],
+    "main": [
+      "me.pahan3568.crumbling_hearts.Crumbling_hearts"
+    ]
+  },
+  "mixins": [
+    "crumbling_hearts.mixins.json",
+    {
+      "config": "crumbling_hearts.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17",
+    "modmenu": ">=${modmenu_version}"
+  }
+}
