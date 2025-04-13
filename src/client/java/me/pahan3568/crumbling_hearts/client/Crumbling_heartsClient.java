@@ -7,6 +7,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import me.pahan3568.crumbling_hearts.config.ModConfig;
+import net.minecraft.entity.effect.StatusEffects;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -69,7 +70,7 @@ public class Crumbling_heartsClient implements ClientModInitializer {
             
             for (int i = 0; i < heartsLost; i++) {
                 int heartIndex = startHeart + i;
-                // Minecraft накладывает сердца каждые 2 ряда (после 20 сердец)
+                // Minecraft накладывает серца каждые 2 ряда (после 20 сердец)
                 int visualRow = (heartIndex / 10) % 2;
                 int stackLevel = heartIndex / 20;
                 int col = heartIndex % 10;
@@ -126,13 +127,26 @@ public class Crumbling_heartsClient implements ClientModInitializer {
     }
 
     private void createParticlesForHeart(int heartX, int heartY, int color, int particleCount, ModConfig config) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        PlayerEntity player = client.player;
+        
+        // Получаем цвет сердец с учетом статусных эффектов
+        int heartColor = color;
+        if (player != null) {
+            if (player.hasStatusEffect(StatusEffects.WITHER)) {
+                heartColor = config.getWitherHeartColor(); // Цвет из конфигурации для иссушения
+            } else if (player.hasStatusEffect(StatusEffects.POISON)) {
+                heartColor = config.getPoisonHeartColor(); // Цвет из конфигурации для отравления
+            }
+        }
+        
         for (int j = 0; j < particleCount; j++) {
             particles.add(new HeartParticle(
                 heartX + (int)(Math.random() * 8),
                 heartY + (int)(Math.random() * 8),
                 (float)(Math.random() * config.getInitialVelocity() - config.getInitialVelocity()/2),
                 (float)(-Math.random() * config.getInitialVelocity()),
-                color
+                heartColor
             ));
         }
     }

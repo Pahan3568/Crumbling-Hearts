@@ -4,6 +4,7 @@
   "package": "me.pahan3568.crumbling_hearts.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

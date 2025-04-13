@@ -32,6 +32,8 @@ public class ModMenuIntegration implements ModMenuApi {
         private final Screen parent;
         private TextFieldWidget normalColorField;
         private TextFieldWidget extraColorField;
+        private TextFieldWidget poisonColorField;
+        private TextFieldWidget witherColorField;
         private CustomSliderWidget particlesSlider;
         private CustomSliderWidget gravitySlider;
         private CustomSliderWidget velocitySlider;
@@ -75,6 +77,28 @@ public class ModMenuIntegration implements ModMenuApi {
             extraColorField.setMaxLength(7);
             currentY += SPACING;
 
+            // Цвет сердец отравления
+            this.poisonColorField = new TextFieldWidget(
+                this.textRenderer, 
+                this.width / 2 - 100, currentY, 
+                200, 20, 
+                Text.translatable("config.crumbling_hearts.option.poison_heart_color")
+            );
+            poisonColorField.setText(config.getPoisonHeartColorString());
+            poisonColorField.setMaxLength(7);
+            currentY += SPACING;
+
+            // Цвет сердец иссушения
+            this.witherColorField = new TextFieldWidget(
+                this.textRenderer, 
+                this.width / 2 - 100, currentY, 
+                200, 20, 
+                Text.translatable("config.crumbling_hearts.option.wither_heart_color")
+            );
+            witherColorField.setText(config.getWitherHeartColorString());
+            witherColorField.setMaxLength(7);
+            currentY += SPACING;
+
             // Слайдеры
             this.particlesSlider = addSlider(currentY, "particles", config.getParticlesPerHeart(), 1, 128);
             currentY += SPACING;
@@ -111,6 +135,8 @@ public class ModMenuIntegration implements ModMenuApi {
 
             addDrawableChild(normalColorField);
             addDrawableChild(extraColorField);
+            addDrawableChild(poisonColorField);
+            addDrawableChild(witherColorField);
             addDrawableChild(particlesSlider);
             addDrawableChild(gravitySlider);
             addDrawableChild(velocitySlider);
@@ -149,6 +175,8 @@ public class ModMenuIntegration implements ModMenuApi {
             // Отрисовка цветовых превью
             renderColorPreview(context, normalColorField);
             renderColorPreview(context, extraColorField);
+            renderColorPreview(context, poisonColorField);
+            renderColorPreview(context, witherColorField);
 
             // Тексты
             renderLabels(context);
@@ -183,6 +211,12 @@ public class ModMenuIntegration implements ModMenuApi {
             drawLabel(context, "config.crumbling_hearts.option.extra_heart_color", currentY);
             currentY += SPACING;
             
+            drawLabel(context, "config.crumbling_hearts.option.poison_heart_color", currentY);
+            currentY += SPACING;
+            
+            drawLabel(context, "config.crumbling_hearts.option.wither_heart_color", currentY);
+            currentY += SPACING;
+            
             drawLabel(context, "config.crumbling_hearts.option.particles", currentY);
             currentY += SPACING;
             
@@ -205,8 +239,13 @@ public class ModMenuIntegration implements ModMenuApi {
         private boolean validateAndSave() {
             String normalColor = normalColorField.getText();
             String extraColor = extraColorField.getText();
+            String poisonColor = poisonColorField.getText();
+            String witherColor = witherColorField.getText();
 
-            if (!HEX_PATTERN.matcher(normalColor).matches() || !HEX_PATTERN.matcher(extraColor).matches()) {
+            if (!HEX_PATTERN.matcher(normalColor).matches() || 
+                !HEX_PATTERN.matcher(extraColor).matches() ||
+                !HEX_PATTERN.matcher(poisonColor).matches() ||
+                !HEX_PATTERN.matcher(witherColor).matches()) {
                 errorMessage = Text.translatable("config.crumbling_hearts.error.invalid_color");
                 return false;
             }
@@ -216,6 +255,8 @@ public class ModMenuIntegration implements ModMenuApi {
             // Сохраняем цвета
             config.setNormalHeartColor(normalColor);
             config.setExtraHeartColor(extraColor);
+            config.setPoisonHeartColor(poisonColor);
+            config.setWitherHeartColor(witherColor);
 
             // Сохраняем значения слайдеров
             config.setParticlesPerHeart((int)particlesSlider.getCurrentValue());
@@ -238,6 +279,8 @@ public class ModMenuIntegration implements ModMenuApi {
             ModConfig config = ModConfig.getInstance();
             normalColorField.setText("#FF0000");
             extraColorField.setText("#FFFF00");
+            poisonColorField.setText("#4E9331");
+            witherColorField.setText("#1F1F23");
             ((CustomSliderWidget)particlesSlider).setValueFromFloat(64);
             ((CustomSliderWidget)gravitySlider).setValueFromFloat(0.04f);
             ((CustomSliderWidget)velocitySlider).setValueFromFloat(1.0f);
