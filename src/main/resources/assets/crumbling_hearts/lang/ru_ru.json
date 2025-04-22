@@ -9,6 +9,8 @@
   "config.crumbling_hearts.option.velocity": "Разбрасывание",
   "config.crumbling_hearts.option.normal_heart_color": "Цвет частиц обычных сердец",
   "config.crumbling_hearts.option.extra_heart_color": "Цвет частиц поглощения",
+  "config.crumbling_hearts.option.poison_heart_color": "Цвет частиц при отравлении",
+  "config.crumbling_hearts.option.wither_heart_color": "Цвет частиц при иссушении",
   "key.crumbling_hearts.config": "Открыть настройки",
   "category.crumbling_hearts.general": "Частицы сердец",
   "config.crumbling_hearts.error.invalid_color": "Неверный формат цвета! Используйте формат #RRGGBB",

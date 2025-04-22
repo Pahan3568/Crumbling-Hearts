@@ -6,6 +6,8 @@
   "config.crumbling_hearts.option.blue": "Particle Blue",
   "config.crumbling_hearts.option.normal_heart_color": "Normal Hearts Color",
   "config.crumbling_hearts.option.extra_heart_color": "Absorption Hearts Color",
+  "config.crumbling_hearts.option.poison_heart_color": "Poison Hearts Color",
+  "config.crumbling_hearts.option.wither_heart_color": "Wither Hearts Color",
   "config.crumbling_hearts.option.particles": "Particles Amount",
   "config.crumbling_hearts.option.gravity": "Gravity",
   "config.crumbling_hearts.option.velocity": "Scattering",

@@ -15,6 +15,8 @@ public class ModConfig {
     // Настройки по умолчанию
     private String normalHeartColor = "#FF0000";  // Красный для обычных сердец
     private String extraHeartColor = "#FFFF00";   // Желтый для дополнительных сердец
+    private String poisonHeartColor = "#4E9331";  // Темно-зеленый для отравления
+    private String witherHeartColor = "#1F1F23";  // Темно-серый для иссушения
     private int particlesPerHeart = 64;
     private float gravityStrength = 0.04f;
     private float initialVelocity = 1.0f;
@@ -61,6 +63,14 @@ public class ModConfig {
         return Integer.parseInt(extraHeartColor.replace("#", ""), 16);
     }
 
+    public int getPoisonHeartColor() {
+        return Integer.parseInt(poisonHeartColor.replace("#", ""), 16);
+    }
+
+    public int getWitherHeartColor() {
+        return Integer.parseInt(witherHeartColor.replace("#", ""), 16);
+    }
+
     public void setNormalHeartColor(String value) {
         normalHeartColor = value;
         saveConfig();
@@ -68,6 +78,16 @@ public class ModConfig {
 
     public void setExtraHeartColor(String value) {
         extraHeartColor = value;
+        saveConfig();
+    }
+
+    public void setPoisonHeartColor(String value) {
+        poisonHeartColor = value;
+        saveConfig();
+    }
+
+    public void setWitherHeartColor(String value) {
+        witherHeartColor = value;
         saveConfig();
     }
 
@@ -102,5 +122,13 @@ public class ModConfig {
 
     public String getExtraHeartColorString() {
         return extraHeartColor;
+    }
+
+    public String getPoisonHeartColorString() {
+        return poisonHeartColor;
+    }
+
+    public String getWitherHeartColorString() {
+        return witherHeartColor;
     }
 }
